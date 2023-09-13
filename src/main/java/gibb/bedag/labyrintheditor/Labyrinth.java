@@ -3,7 +3,7 @@ package gibb.bedag.labyrintheditor;
 public class Labyrinth {
     private long width;
     private long height;
-    private String[] tiles;
+    private final String[] tiles;
 
     public Labyrinth(long width, long height, String[] tiles) {
         this.width = width;
@@ -29,9 +29,5 @@ public class Labyrinth {
 
     public String[] getTiles() {
         return tiles;
-    }
-
-    public void setTiles(String[] tiles) {
-        this.tiles = tiles;
     }
 }
