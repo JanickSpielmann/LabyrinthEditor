@@ -32,6 +32,13 @@ public class SaveStateManager {
         file.delete();
     }
 
+    public SaveState read() throws IOException{
+        SaveState saveState = mapper.readValue(file, SaveState.class);
+        return saveState;
+    }
+
+
+
 
 
 
