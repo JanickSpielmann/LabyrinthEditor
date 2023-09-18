@@ -24,6 +24,16 @@ public class SaveStateManager {
         mapper.writeValue(file,saveState);
     }
 
+    public boolean saveStateExists(){
+        return file.exists();
+    }
+
+    public void delete(){
+        file.delete();
+    }
+
+
+
 
 
 }
