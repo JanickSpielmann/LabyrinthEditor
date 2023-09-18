@@ -20,5 +20,10 @@ public class SaveStateManager {
         mapper.activateDefaultTyping(ptv);
         mapper.setVisibility(PropertyAccessor.FIELD, JsonAutoDetect.Visibility.ANY);
     }
+    public void save(SaveState saveState) throws IOException{
+        mapper.writeValue(file,saveState);
+    }
+
+
 
 }
