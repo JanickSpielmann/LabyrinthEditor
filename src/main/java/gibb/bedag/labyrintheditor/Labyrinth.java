@@ -1,8 +1,8 @@
 package gibb.bedag.labyrintheditor;
 
 public class Labyrinth {
-    private int width;
-    private int height;
+    private final int width;
+    private final int height;
     private final Tile[][] tiles;
 
     public Labyrinth(int width, int height) {
@@ -32,7 +32,11 @@ public class Labyrinth {
         return tiles;
     }
 
+    public Tile[] getTilesX(int x){
+        return tiles[x-1];
+    }
+
     public Tile getTile(int x, int y) {
-        return this.tiles[x-1][y-1];
+        return tiles[x-1][y-1];
     }
 }
