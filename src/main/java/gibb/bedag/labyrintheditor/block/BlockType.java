@@ -1,6 +1,6 @@
 package gibb.bedag.labyrintheditor.block;
 
-public enum State {
+public enum BlockType {
     DESTRUCTABLE,
     INDESTRUCTABLE
 }
