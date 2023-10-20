@@ -11,26 +11,29 @@ public class Tile {
         this.block = null;
     }
 
+    public void setTileProperties(boolean isFree, Block block) {
+        this.isFree = isFree;
+        this.block = isFree ? null : block;
+    }
+
     public boolean isFree() {
-        return isFree;
+        return this.isFree;
     }
 
     public void setFree(boolean free) {
-        if(free) setBlock(null);
-        isFree = free;
+        this.isFree = free;
     }
 
     public Block getBlock() {
-        return block;
+        return this.block;
     }
 
     public void setBlock(Block block) {
-        setFree(block == null);
         this.block = block;
     }
 
     @Override
     public String toString() {
-        return isFree ? "0" : block.toString();
+        return this.isFree ? "0" : this.block.toString();
     }
 }
