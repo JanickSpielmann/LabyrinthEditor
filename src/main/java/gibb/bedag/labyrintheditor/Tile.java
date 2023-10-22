@@ -11,25 +11,26 @@ public class Tile {
         this.block = null;
     }
 
-    public void setTileProperties(boolean isFree, Block block) {
-        this.isFree = isFree;
-        this.block = isFree ? null : block;
+    public void setTileBlock(Block block){
+        if(this.isFree){
+            this.block = block;
+            this.isFree = false;
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void setTileFree(){
+        this.block = null;
+        this.isFree = true;
     }
 
     public boolean isFree() {
         return this.isFree;
     }
 
-    public void setFree(boolean free) {
-        this.isFree = free;
-    }
-
     public Block getBlock() {
         return this.block;
-    }
-
-    public void setBlock(Block block) {
-        this.block = block;
     }
 
     @Override
