@@ -7,7 +7,7 @@ import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.jsontype.BasicPolymorphicTypeValidator;
 import com.fasterxml.jackson.databind.jsontype.PolymorphicTypeValidator;
-import gibb.bedag.labyrintheditor.block.Block;
+import gibb.bedag.labyrintheditor.tile.block.Block;
 
 public class SaveStateManager {
     private final File file;
