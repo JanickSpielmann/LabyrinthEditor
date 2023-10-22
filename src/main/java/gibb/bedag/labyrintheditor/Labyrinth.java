@@ -1,33 +1,42 @@
 package gibb.bedag.labyrintheditor;
 
 public class Labyrinth {
-    private long width;
-    private long height;
+    private final int width;
+    private final int height;
     private final Tile[][] tiles;
 
-    public Labyrinth(long width, long height, Tile[][] tiles) {
+    public Labyrinth(int width, int height) {
+        this.tiles = new Tile[width][height];
         this.width = width;
         this.height = height;
-        this.tiles = tiles;
+        createTilesForLabyrinth();
     }
 
-    public long getWidth() {
+    private void createTilesForLabyrinth() {
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                tiles[x][y] = new Tile();
+            }
+        }
+    }
+
+    public int getWidth() {
         return width;
     }
 
-    public void setWidth(long width) {
-        this.width = width;
-    }
-
-    public long getHeight() {
+    public int getHeight() {
         return height;
-    }
-
-    public void setHeight(long height) {
-        this.height = height;
     }
 
     public Tile[][] getTiles() {
         return tiles;
+    }
+
+    public Tile[] getTilesX(int x){
+        return tiles[x-1];
+    }
+
+    public Tile getTile(int x, int y) {
+        return tiles[x-1][y-1];
     }
 }

@@ -1,25 +1,17 @@
 package gibb.bedag.labyrintheditor.block;
 
 public abstract class Block {
+    protected BlockType blockType;
 
-    protected int width;
-    protected int height;
-    protected State state;
-
-    public Block(int width, int height) {
-        this.width = width;
-        this.height = height;
+    public Block() {
     }
 
-    public int getWidth() {
-        return width;
+    public BlockType getBlockType() {
+        return blockType;
     }
 
-    public int getHeight() {
-        return height;
-    }
-
-    public State getState() {
-        return state;
+    @Override
+    public String toString() {
+     return blockType.value;
     }
 }

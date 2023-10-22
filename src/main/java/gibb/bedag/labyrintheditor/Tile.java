@@ -4,46 +4,37 @@ import gibb.bedag.labyrintheditor.block.Block;
 
 public class Tile {
     private boolean isFree;
-    private long width;
-    private long height;
     private Block block;
 
     public Tile() {
         this.isFree = true;
-        this.width = 20;
-        this.height = 20;
         this.block = null;
     }
 
+    public void setTileBlock(Block block){
+        if(this.isFree){
+            this.block = block;
+            this.isFree = false;
+        } else {
+            throw new IllegalArgumentException();
+        }
+    }
+
+    public void setTileFree(){
+        this.block = null;
+        this.isFree = true;
+    }
+
     public boolean isFree() {
-        return isFree;
-    }
-
-    public void setFree(boolean free) {
-        isFree = free;
-    }
-
-    public long getWidth() {
-        return width;
-    }
-
-    public void setWidth(long width) {
-        this.width = width;
-    }
-
-    public long getHeight() {
-        return height;
-    }
-
-    public void setHeight(long height) {
-        this.height = height;
+        return this.isFree;
     }
 
     public Block getBlock() {
-        return block;
+        return this.block;
     }
 
-    public void setBlock(Block block) {
-        this.block = block;
+    @Override
+    public String toString() {
+        return this.isFree ? "0" : this.block.toString();
     }
 }
