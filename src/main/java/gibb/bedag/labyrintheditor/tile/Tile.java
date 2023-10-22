@@ -1,6 +1,6 @@
-package gibb.bedag.labyrintheditor;
+package gibb.bedag.labyrintheditor.tile;
 
-import gibb.bedag.labyrintheditor.block.Block;
+import gibb.bedag.labyrintheditor.tile.block.Block;
 
 public class Tile {
     private boolean isFree;
