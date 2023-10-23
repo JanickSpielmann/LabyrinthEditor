@@ -28,7 +28,7 @@ public class ConsoleUi {
         this.labyrinth = labyrinth;
     }
 
-    public void executeAction() throws IOException {
+    public void executeAction() {
         String input = readUserInput();
         if (input.length() == 1) {
             Shortcut shortcut = Shortcut.parseShortcut(input.charAt(0));
@@ -36,8 +36,19 @@ public class ConsoleUi {
                 case SAVE -> save();
                 case LABYRINTH -> printLabyrinth();
                 case MANUAL -> printManual();
-                case LOAD -> throw new IOException();
+                case LOAD -> load();
             }
+        }
+    }
+
+    private void load() {
+        File file = readLoadingFile();
+        SaveStateManager saveStateManager = new SaveStateManager(file);
+        try {
+            SaveState saveState = saveStateManager.read();
+            this.labyrinth = saveState.getLabyrinth();
+        } catch (IOException e) {
+            showLoadingError();
         }
     }
 

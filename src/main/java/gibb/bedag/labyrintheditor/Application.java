@@ -24,23 +24,7 @@ public class Application {
         ui.setLabyrinth(labyrinth);
         ui.printLabyrinth();
         while (!finished){
-            try{
-                ui.executeAction();
-            }catch(IOException e){
-                try {
-                    SaveState saveState = load();
-                    labyrinth = saveState.getLabyrinth();
-                    ui.setLabyrinth(labyrinth);
-                    ui.printLabyrinth();
-                }catch (IOException ex){
-                    ui.showLoadingError();
-                }
-            }
+            ui.executeAction();
         }
-    }
-    private SaveState load() throws IOException {
-        File file = ui.readLoadingFile();
-        SaveStateManager saveStateManager = new SaveStateManager(file);
-        return saveStateManager.read();
     }
 }
