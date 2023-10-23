@@ -1,4 +1,4 @@
-package gibb.bedag.labyrintheditor.block;
+package gibb.bedag.labyrintheditor.tile.block;
 
 public abstract class Block {
     protected BlockType blockType;
