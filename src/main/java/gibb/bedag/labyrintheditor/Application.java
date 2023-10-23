@@ -16,7 +16,7 @@ public class Application {
         boolean finished = false;
         int x = ui.readLabyrinthWidth();
         int y = ui.readLabyrinthHeight();
-        this.labyrinth = labyrinth.createLabyrinth(x, y);
+        this.labyrinth = new Labyrinth(x, y);
         ui.setLabyrinth(labyrinth);
         ui.printLabyrinth();
         while (!finished){

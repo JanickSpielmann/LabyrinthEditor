@@ -11,16 +11,11 @@ public class Labyrinth {
         this.tiles = new Tile[width][height];
         this.width = width;
         this.height = height;
-    }
-
-    public Labyrinth createLabyrinth(int width, int height) {
-        Labyrinth labyrinth = new Labyrinth(width, height);
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
-                tiles[x][y] = new Tile();
+                this.tiles[x][y] = new Tile();
             }
         }
-        return labyrinth;
     }
 
     public int getWidth() {
