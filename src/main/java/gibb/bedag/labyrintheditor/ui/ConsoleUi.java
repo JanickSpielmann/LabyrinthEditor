@@ -1,8 +1,11 @@
 package gibb.bedag.labyrintheditor.ui;
 
 import gibb.bedag.labyrintheditor.Labyrinth;
+import gibb.bedag.labyrintheditor.persist.SaveState;
+import gibb.bedag.labyrintheditor.persist.SaveStateManager;
 import gibb.bedag.labyrintheditor.ui.shortcuts.Shortcut;
 
+import java.io.IOException;
 import java.io.PrintStream;
 import java.util.Objects;
 import java.util.Scanner;
@@ -14,10 +17,12 @@ public class ConsoleUi {
     private static final String NEW_LINE = "\n";
     private Labyrinth labyrinth;
     private static final String regex_labyrinth_size = "^[1-9]\\d?$|^100$";
+    private final SaveStateManager saveStateManager;
 
     public ConsoleUi(PrintStream out, Scanner scanner) {
         this.out = out;
         this.scanner = scanner;
+        this.saveStateManager = new SaveStateManager();
     }
 
     public void setLabyrinth(Labyrinth labyrinth) {
@@ -29,10 +34,19 @@ public class ConsoleUi {
         if(input.length() == 1){
             Shortcut shortcut = Shortcut.parseShortcut(input.charAt(0));
             switch (Objects.requireNonNull(shortcut)){
-                case SAVE -> out.println("save");
+                case SAVE -> save();
                 case LABYRINTH -> printLabyrinth();
                 case MANUAL -> printManual();
             }
+        }
+    }
+
+    private void save() {
+        SaveState savestate = new SaveState(this.labyrinth);
+        try {
+            saveStateManager.save(savestate);
+        }catch(IOException e){
+            out.println(e.getMessage());
         }
     }
 
