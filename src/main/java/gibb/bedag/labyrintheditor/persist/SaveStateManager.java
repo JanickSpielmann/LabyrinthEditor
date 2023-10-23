@@ -36,11 +36,4 @@ public class SaveStateManager {
         SaveState saveState = mapper.readValue(file, SaveState.class);
         return saveState;
     }
-
-
-
-
-
-
-
 }

@@ -21,7 +21,7 @@ public class Application {
         ui.setLabyrinth(labyrinth);
         ui.printLabyrinth();
         while (!finished){
-            ui.readUserInput();
+            ui.executeAction();
         }
     }
 }

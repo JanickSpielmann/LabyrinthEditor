@@ -13,6 +13,7 @@ public class ConsoleUi {
     private final Scanner scanner;
     private final String NEW_LINE = "\n";
     private Labyrinth labyrinth;
+    private final String regex_labyrinth_size = "^[1-9]\\d?$|^100$";
 
     public ConsoleUi(PrintStream out, Scanner scanner) {
         this.out = out;
@@ -23,8 +24,8 @@ public class ConsoleUi {
         this.labyrinth = labyrinth;
     }
 
-    public String readUserInput(){
-        String input = scanner.nextLine();
+    public void executeAction(){
+        String input = readUserInput();
         if(input.length() == 1){
             Shortcut shortcut = Shortcut.parseShortcut(input.charAt(0));
             switch (Objects.requireNonNull(shortcut)){
@@ -33,16 +34,20 @@ public class ConsoleUi {
                 case MANUAL -> printManual();
             }
         }
-        return "";
     }
 
-    public int readUserIntegerInput(){
-        String input = scanner.nextLine();
-        if(input.matches("^[1-9][0-9]?$|^100$")) {
+    private int readUserIntegerInput(){
+        String input = readUserInput();
+        if(input.matches(regex_labyrinth_size)) {
             return Integer.parseInt(input);
         } else {
             throw new NumberFormatException();
         }
+    }
+
+    private String readUserInput() {
+        String input = scanner.nextLine();
+        return input;
     }
 
     public int readLabyrinthWidth(){
