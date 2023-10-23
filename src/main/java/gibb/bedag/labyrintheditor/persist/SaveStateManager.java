@@ -13,8 +13,8 @@ public class SaveStateManager {
     private final File file;
     private final ObjectMapper mapper;
 
-    public SaveStateManager() {
-        file = Path.of(System.getProperty("user.home"), "savestate.json").toFile();
+    public SaveStateManager(File file) {
+        this.file = file;
         mapper = new ObjectMapper();
         PolymorphicTypeValidator ptv = BasicPolymorphicTypeValidator.builder().allowIfSubType(Block.class).build();
         mapper.activateDefaultTyping(ptv);
