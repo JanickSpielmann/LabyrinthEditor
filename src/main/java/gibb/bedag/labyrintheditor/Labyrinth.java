@@ -3,25 +3,24 @@ package gibb.bedag.labyrintheditor;
 import gibb.bedag.labyrintheditor.tile.Tile;
 
 public class Labyrinth {
-    private int width;
-    private int height;
-    private Tile[][] tiles;
+    private final int width;
+    private final int height;
+    private final Tile[][] tiles;
 
-    public Labyrinth() {
-    }
-
-    public void setLabyrinthProperties(int width, int height) {
+    public Labyrinth(int width, int height) {
         this.tiles = new Tile[width][height];
         this.width = width;
         this.height = height;
     }
 
-    public void createLabyrinth() {
+    public Labyrinth createLabyrinth(int width, int height) {
+        Labyrinth labyrinth = new Labyrinth(width, height);
         for (int x = 0; x < width; x++) {
             for (int y = 0; y < height; y++) {
                 tiles[x][y] = new Tile();
             }
         }
+        return labyrinth;
     }
 
     public int getWidth() {

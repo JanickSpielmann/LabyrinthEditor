@@ -7,7 +7,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         ConsoleUi ui = new ConsoleUi(System.out, new Scanner(System.in));
-        Application application = new Application(ui, new Labyrinth());
+        Application application = new Application(ui);
 
         application.start();
     }
