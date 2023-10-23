@@ -1,11 +1,15 @@
 package gibb.bedag.labyrintheditor;
 
+import gibb.bedag.labyrintheditor.persist.SaveState;
+import gibb.bedag.labyrintheditor.persist.SaveStateManager;
 import gibb.bedag.labyrintheditor.ui.ConsoleUi;
+
+import java.io.File;
+import java.io.IOException;
 
 public class Application {
 
     private final ConsoleUi ui;
-    private Labyrinth labyrinth;
 
     public Application(ConsoleUi ui) {
         this.ui = ui;
@@ -16,7 +20,7 @@ public class Application {
         boolean finished = false;
         int x = ui.readLabyrinthWidth();
         int y = ui.readLabyrinthHeight();
-        this.labyrinth = new Labyrinth(x, y);
+        Labyrinth labyrinth = new Labyrinth(x, y);
         ui.setLabyrinth(labyrinth);
         ui.printLabyrinth();
         while (!finished){

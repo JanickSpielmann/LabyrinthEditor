@@ -4,7 +4,8 @@ package gibb.bedag.labyrintheditor.ui.shortcuts;
 public enum Shortcut {
     SAVE('s', "Speichere das Labyrinth"),
     LABYRINTH('l', "Zeige das Labyrinth an"),
-    MANUAL('m', "Zeige das Handbuch an");
+    MANUAL('m', "Zeige das Handbuch an"),
+    LOAD('l', "Lade ein bestehendes Labyrinth");
 
     public final char key;
     public final String definition;

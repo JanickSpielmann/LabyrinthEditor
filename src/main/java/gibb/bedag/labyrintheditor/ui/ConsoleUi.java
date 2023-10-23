@@ -36,7 +36,19 @@ public class ConsoleUi {
                 case SAVE -> save();
                 case LABYRINTH -> printLabyrinth();
                 case MANUAL -> printManual();
+                case LOAD -> load();
             }
+        }
+    }
+
+    private void load() {
+        File file = readLoadingFile();
+        SaveStateManager saveStateManager = new SaveStateManager(file);
+        try {
+            SaveState saveState = saveStateManager.read();
+            this.labyrinth = saveState.getLabyrinth();
+        } catch (IOException e) {
+            showLoadingError();
         }
     }
 
@@ -53,9 +65,14 @@ public class ConsoleUi {
 
     private File readWritingFile() {
         out.println("Bitte geben Sie den gesamten Pfad samt Filenamen zum speichern der Datei an. Zum Beispiel: [C:/Weg/zur/gewünschten/Datei.json]");
-        File file = new File(readUserInput());
-        return file;
+        return new File(readUserInput());
     }
+
+    public File readLoadingFile() {
+        out.println("Bitte geben Sie den gesamten Pfad samt Filenamen der zu ladenden Datei an. Zum Beispiel: [C:/Weg/zur/gewünschten/Datei.json]");
+        return new File(readUserInput());
+    }
+
 
     private int readUserIntegerInput() {
         String input = readUserInput();
@@ -137,5 +154,9 @@ public class ConsoleUi {
 
     private void printSeparatingLine() {
         out.println(NEW_LINE + "---|".repeat(labyrinth.getWidth() + 1));
+    }
+
+    public void showLoadingError() {
+        out.println("File konnte nicht geladen werden. Versuchen Sie es nochmal.");
     }
 }
