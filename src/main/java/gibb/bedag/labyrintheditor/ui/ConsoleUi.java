@@ -146,6 +146,6 @@ public class ConsoleUi {
     }
 
     public void showLoadingError() {
-        out.println("File could not be loaded. Please try again or do something else.");
+        out.println("File konnte nicht geladen werden. Versuchen Sie es nochmal.");
     }
 }
