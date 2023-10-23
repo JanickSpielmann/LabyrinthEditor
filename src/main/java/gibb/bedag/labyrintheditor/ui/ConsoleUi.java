@@ -11,9 +11,9 @@ import java.util.Scanner;
 public class ConsoleUi {
     private final PrintStream out;
     private final Scanner scanner;
-    private final String NEW_LINE = "\n";
+    private static final String NEW_LINE = "\n";
     private Labyrinth labyrinth;
-    private final String regex_labyrinth_size = "^[1-9]\\d?$|^100$";
+    private static final String regex_labyrinth_size = "^[1-9]\\d?$|^100$";
 
     public ConsoleUi(PrintStream out, Scanner scanner) {
         this.out = out;
@@ -46,8 +46,7 @@ public class ConsoleUi {
     }
 
     private String readUserInput() {
-        String input = scanner.nextLine();
-        return input;
+        return scanner.nextLine();
     }
 
     public int readLabyrinthWidth(){
