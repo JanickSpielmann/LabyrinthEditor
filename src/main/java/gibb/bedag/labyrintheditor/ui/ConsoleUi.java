@@ -52,7 +52,7 @@ public class ConsoleUi {
     }
 
     private File readWritingFile() {
-        out.println("Bitte geben Sie den gesamten Pfad samt Filenamen zum speichern der Datei an.");
+        out.println("Bitte geben Sie den gesamten Pfad samt Filenamen zum speichern der Datei an. Zum Beispiel: [C:/Weg/zur/gewünschten/Datei.json]");
         File file = new File(readUserInput());
         return file;
     }
