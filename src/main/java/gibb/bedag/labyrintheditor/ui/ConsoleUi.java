@@ -28,7 +28,7 @@ public class ConsoleUi {
         this.labyrinth = labyrinth;
     }
 
-    public void executeAction() {
+    public void executeAction() throws IOException {
         String input = readUserInput();
         if (input.length() == 1) {
             Shortcut shortcut = Shortcut.parseShortcut(input.charAt(0));
@@ -36,6 +36,7 @@ public class ConsoleUi {
                 case SAVE -> save();
                 case LABYRINTH -> printLabyrinth();
                 case MANUAL -> printManual();
+                case LOAD -> throw new IOException();
             }
         }
     }
@@ -53,9 +54,14 @@ public class ConsoleUi {
 
     private File readWritingFile() {
         out.println("Bitte geben Sie den gesamten Pfad samt Filenamen zum speichern der Datei an. Zum Beispiel: [C:/Weg/zur/gewünschten/Datei.json]");
-        File file = new File(readUserInput());
-        return file;
+        return new File(readUserInput());
     }
+
+    public File readLoadingFile() {
+        out.println("Bitte geben Sie den gesamten Pfad samt Filenamen der zu ladenden Datei an. Zum Beispiel: [C:/Weg/zur/gewünschten/Datei.json]");
+        return new File(readUserInput());
+    }
+
 
     private int readUserIntegerInput() {
         String input = readUserInput();
@@ -137,5 +143,9 @@ public class ConsoleUi {
 
     private void printSeparatingLine() {
         out.println(NEW_LINE + "---|".repeat(labyrinth.getWidth() + 1));
+    }
+
+    public void showLoadingError() {
+        out.println("File could not be loaded. Please try again or do something else.");
     }
 }
