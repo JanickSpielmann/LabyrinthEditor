@@ -4,7 +4,7 @@
 
 Ein Issue hat die Definition von Done erfüllt, wenn folgende Vorgaben erreicht sind:
 - Alle Vorgaben des Issues sind erfüllt.
-- Eine Merge Request auf GitLab wurde erstellt mit mindestens 1 Reviewer.
+- Eine Merge Request auf GitLab wurde erstellt mit mindestens ein Reviewer.
 - Die Merge Request wurde von dem/den Reviewer/s angenommen, sie darf nicht angenommen werden bis alle Threads, welche vom Reviewer/s erstellt worden sind, gelöst wurden. 
 > Die Merge Request wurde angenommen und gemergt mit dem Develop wurde, dann kann das Issue auf "Done" gesetzt werden.
 
