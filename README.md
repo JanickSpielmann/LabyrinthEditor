@@ -10,7 +10,7 @@ Ein Issue hat die Definition von Done erfüllt, wenn folgende Vorgaben erreicht 
 
 ## Java-Doc
 
-- Funktionale Klassen sollen in mindestens 2 Sätzen oberhalb der Klasse erklären, was die Klasse genau alles erfüllt.
+- Funktionale Klassen sollen in mindestens zwei Sätzen oberhalb der Klasse erklären, was die Klasse genau alles erfüllt.
 - Wenn mehr als 3 Methoden mit ähnlichen Namen respektive Funktionen existieren, wird über jeder einzelnen Methode die Erklärung zum Inhalt vermerkt.
 - Wenn Java-Doc bei einer Methode geschrieben wird und diese Parameter entgegennimmt, sollen diese auch im Java-Doc vermerkt werden.
 
