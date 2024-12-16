@@ -1,8 +1,8 @@
-package gibb.bedag.labyrintheditor.persist;
+package ch.gibb.labyrintheditor.persist;
 
+import ch.gibb.labyrintheditor.Labyrinth;
 import com.fasterxml.jackson.annotation.JsonCreator;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import gibb.bedag.labyrintheditor.Labyrinth;
 
 public class SaveState {
 

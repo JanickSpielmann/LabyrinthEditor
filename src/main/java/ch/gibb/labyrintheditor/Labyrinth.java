@@ -1,6 +1,6 @@
-package gibb.bedag.labyrintheditor;
+package ch.gibb.labyrintheditor;
 
-import gibb.bedag.labyrintheditor.tile.Tile;
+import ch.gibb.labyrintheditor.tile.Tile;
 
 public class Labyrinth {
     private final int width;
