@@ -1,4 +1,4 @@
-package gibb.bedag.labyrintheditor.ui.shortcuts;
+package ch.gibb.labyrintheditor.ui.shortcuts;
 
 
 public enum Shortcut {

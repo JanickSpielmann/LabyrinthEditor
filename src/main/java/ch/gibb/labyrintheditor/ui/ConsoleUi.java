@@ -1,9 +1,10 @@
-package gibb.bedag.labyrintheditor.ui;
+package ch.gibb.labyrintheditor.ui;
 
-import gibb.bedag.labyrintheditor.Labyrinth;
-import gibb.bedag.labyrintheditor.persist.SaveState;
-import gibb.bedag.labyrintheditor.persist.SaveStateManager;
-import gibb.bedag.labyrintheditor.ui.shortcuts.Shortcut;
+
+import ch.gibb.labyrintheditor.Labyrinth;
+import ch.gibb.labyrintheditor.persist.SaveState;
+import ch.gibb.labyrintheditor.persist.SaveStateManager;
+import ch.gibb.labyrintheditor.ui.shortcuts.Shortcut;
 
 import java.io.File;
 import java.io.IOException;
